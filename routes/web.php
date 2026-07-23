@@ -75,6 +75,19 @@ Route::controller(App\Http\Controllers\BorrowController::class)->group(function 
     Route::get('/admin/reservations', 'reservations')->name('admin.reservations');
 });
 
+// Admin Review Routes
+Route::middleware(['auth', 'role:admin'])->controller(App\Http\Controllers\ReviewController::class)->group(function () {
+    Route::get('/admin/reviews', 'index')->name('admin.reviews');
+    Route::post('/admin/reviews/toggle/{id}', 'toggleApproval')->name('admin.review.toggle');
+    Route::get('/admin/reviews/delete/{id}', 'destroy')->name('admin.review.delete');
+});
+
+// Admin System Settings Routes
+Route::middleware(['auth', 'role:admin'])->controller(App\Http\Controllers\LibrarySettingController::class)->group(function () {
+    Route::get('/admin/settings', 'index')->name('admin.settings');
+    Route::post('/admin/settings/update', 'update')->name('admin.settings.update');
+});
+
 // Member Routes
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/member/dashboard', [\App\Http\Controllers\MemberDashboardController::class, 'index'])->name('member.dashboard');

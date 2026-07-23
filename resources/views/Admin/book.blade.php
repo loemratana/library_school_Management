@@ -78,99 +78,74 @@
                             </div>
                         </form>
 
-                        <div class="title d-flex flex-wrap align-items-center justify-content-between">
-                            <div class="left">
-                                <h6 class="text-medium mb-30">Book Management</h6>
+                        <div class="card-style mb-30 shadow-sm border-0 rounded-4">
+                            <!-- [Search block already exists above this, we are targeting the table wrapper] -->
+                            <div class="title d-flex flex-wrap align-items-center justify-content-between mb-3">
+                                <div class="left">
+                                    <h6 class="text-medium text-muted"><i class="lni lni-library"></i> Book Management</h6>
+                                </div>
+                                <div class="right">
+                                    <a href="#" class="main-btn primary-btn btn-hover btn-sm rounded-pill px-4" data-bs-toggle="modal"
+                                        data-bs-target="#addBookModal">
+                                        <i class="lni lni-plus mr-5"></i> Add Book
+                                    </a>
+                                </div>
                             </div>
-                            <div class="right">
-                                <a href="#" class="main-btn primary-btn btn-hover btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#addBookModal">
-                                    <i class="lni lni-plus mr-5"></i> Add Book
-                                </a>
-                            </div>
-                        </div>
-                        <div class="table-wrapper table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <h6>ID</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Image</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Title</h6>
-                                        </th>
-                                        <th>
-                                            <h6>ISBN</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Author</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Category</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Publisher</h6>
-                                        </th>
-                                        <th>
-                                            <h6>Action</h6>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($books as $key => $book)
+                            <div class="table-wrapper table-responsive">
+                                <table class="table top-selling-table table-hover align-middle">
+                                    <thead>
                                         <tr>
-                                            <td>
-                                                <p>{{ $key + 1 }}</p>
-                                            </td>
-                                            <td>
-                                                @if($book->image)
-                                                    <img src="{{ asset($book->image) }}" alt="" style="width: 50px;">
-                                                @else
-                                                    <span>No Image</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <p>{{ $book->title }}</p>
-                                            </td>
-                                            <td>
-                                                <p>{{ $book->isbn }}</p>
-                                            </td>
-                                            <td>
-                                                <p>{{ $book->author->FirstName ?? '' }} {{ $book->author->LastName ?? '' }}</p>
-                                            </td>
-                                            <td>
-                                                <p>{{ $book->category->name ?? '' }}</p>
-                                            </td>
-                                            <td>
-                                                <p>{{ $book->publisher->name ?? '' }}</p>
-                                            </td>
-                                            <td>
-                                                <div class="action d-flex justify-content-center gap-2">
-                                                    <a href="#" class="text-primary edit-btn" data-bs-toggle="modal"
-                                                        data-bs-target="#editBookModal" data-id="{{ $book->book_id }}"
-                                                        data-title="{{ $book->title }}" data-isbn="{{ $book->isbn }}"
-                                                        data-author="{{ $book->author_id }}"
-                                                        data-category="{{ $book->category_id }}"
-                                                        data-publisher="{{ $book->publisher_id }}"
-                                                        data-year="{{ $book->publish_year }}"
-                                                        data-desc="{{ $book->description }}" data-price="{{ $book->price }}"
-                                                        data-quantity="{{ $book->quantity }}" data-image="{{ $book->image }}">
-                                                        <i class="lni lni-pencil-alt"></i>
-                                                    </a>
-                                                    <a onclick="return confirm('Are you sure you want to delete this book?')"
-                                                        href="{{ route('book.delete', $book->book_id) }}" class="text-danger">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
+                                            <th><h6 class="text-sm text-medium text-muted">ID</h6></th>
+                                            <th><h6 class="text-sm text-medium text-muted">Cover</h6></th>
+                                            <th><h6 class="text-sm text-medium text-muted">Title & ISBN</h6></th>
+                                            <th><h6 class="text-sm text-medium text-muted">Author</h6></th>
+                                            <th><h6 class="text-sm text-medium text-muted">Category</h6></th>
+                                            <th><h6 class="text-sm text-medium text-muted">Publisher</h6></th>
+                                            <th class="text-center"><h6 class="text-sm text-medium text-muted">Action</h6></th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($books as $key => $book)
+                                            <tr>
+                                                <td><p class="text-sm text-muted">{{ $key + 1 }}</p></td>
+                                                <td>
+                                                    @if($book->image)
+                                                        <img src="{{ asset($book->image) }}" alt="cover" class="rounded shadow-sm" style="width: 45px; height: 60px; object-fit: cover;">
+                                                    @else
+                                                        <div class="bg-light rounded d-flex align-items-center justify-content-center text-muted shadow-sm" style="width: 45px; height: 60px;">
+                                                            <i class="lni lni-image"></i>
+                                                        </div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <p class="text-sm font-weight-bold text-dark mb-0">{{ Str::limit($book->title, 30) }}</p>
+                                                    <p class="text-xs text-muted mb-0">ISBN: {{ $book->isbn }}</p>
+                                                </td>
+                                                <td><p class="text-sm text-muted">{{ $book->author->FirstName ?? '' }} {{ $book->author->LastName ?? '' }}</p></td>
+                                                <td><span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3">{{ $book->category->name ?? '' }}</span></td>
+                                                <td><p class="text-sm text-muted">{{ $book->publisher->name ?? '' }}</p></td>
+                                                <td class="text-center">
+                                                    <div class="action d-flex justify-content-center gap-2">
+                                                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle" data-bs-toggle="modal"
+                                                            data-bs-target="#editBookModal" data-id="{{ $book->book_id }}"
+                                                            data-title="{{ $book->title }}" data-isbn="{{ $book->isbn }}"
+                                                            data-author="{{ $book->author_id }}" data-category="{{ $book->category_id }}"
+                                                            data-publisher="{{ $book->publisher_id }}" data-year="{{ $book->publish_year }}"
+                                                            data-desc="{{ $book->description }}" data-price="{{ $book->price }}"
+                                                            data-quantity="{{ $book->quantity }}" data-image="{{ $book->image }}">
+                                                            <i class="lni lni-pencil-alt"></i>
+                                                        </a>
+                                                        <a onclick="return confirm('Are you sure you want to delete this book?')"
+                                                            href="{{ route('book.delete', $book->book_id) }}" class="btn btn-sm btn-outline-danger rounded-circle">
+                                                            <i class="lni lni-trash-can"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
 
                         <!-- Pagination -->
                         <div class="d-flex justify-content-between align-items-center mt-3">

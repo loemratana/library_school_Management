@@ -33,4 +33,32 @@ class ReviewController extends Controller
 
         return back()->with('success', 'Thank you for your review!');
     }
+    public function index()
+    {
+        $reviews = Review::with(['user', 'book'])->latest()->paginate(10);
+        return view('Admin.reviews', compact('reviews'));
+    }
+
+    public function toggleApproval($id)
+    {
+        $review = Review::findOrFail($id);
+        $review->approved = !$review->approved;
+        $review->save();
+
+        return back()->with([
+            'message' => 'Review visibility updated successfully.',
+            'alert-type' => 'success'
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $review = Review::findOrFail($id);
+        $review->delete();
+
+        return back()->with([
+            'message' => 'Review deleted successfully.',
+            'alert-type' => 'info'
+        ]);
+    }
 }

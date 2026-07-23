@@ -47,6 +47,9 @@
           <li>
             <a href="{{ route('admin.author') }}" class="{{ Route::is('admin.author') ? 'active' : '' }}"> Authors </a>
           </li>
+          <li>
+            <a href="{{ route('admin.reviews') }}" class="{{ Route::is('admin.reviews') ? 'active' : '' }}"> Reviews </a>
+          </li>
         </ul>
       </li>
 
@@ -115,6 +118,14 @@
           <li>
             <a href="{{ route('admin.reports') }}" class="{{ Route::is('admin.reports') ? 'active' : '' }}"> Usage &
               Inventory </a>
+          </li>
+          <li>
+            <a href="{{ route('admin.settings') }}" class="{{ Route::is('admin.settings') ? 'active' : '' }}">
+              <span class="icon">
+                <i class="lni lni-cog"></i>
+              </span>
+              <span class="text">System Settings</span>
+            </a>
           </li>
         </ul>
       </li>
