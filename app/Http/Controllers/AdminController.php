@@ -94,62 +94,11 @@ class AdminController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-
-            // Generate a 6-digit verification code
-            $verificationCode = random_int(100000, 999999);
-
-            // Store code and user ID in session (correct key)
-            session([
-                'verification_code' => $verificationCode,
-                'user_id' => $user->id,
-            ]);
-
-            // Send verification email
-            Mail::to($user->email)->send(new VericationCodeMail($verificationCode));
-
-            // Log out the user temporarily until they verify
-            Auth::logout();
-
-            return redirect()->route('custom.verification.form')
-                ->with('status', 'Verification code sent to your email.');
+            return redirect()->intended('/dashboard');
         }
 
         // Invalid credentials
         return redirect()->back()->withErrors(['email' => 'Invalid credentials provided.']);
-    }
-
-    /**
-     * Show verification form
-     */
-    public function ShowVerification()
-    {
-        return view('auth.verify');
-    }
-
-    /**
-     * Verify the code submitted by the user
-     */
-    public function VerificationVerify(Request $request)
-    {
-        // Validate input
-        $request->validate([
-            'code' => 'required|numeric',
-        ]);
-
-        // Check if code matches session
-        if ($request->code == session('verification_code')) {
-            Auth::loginUsingId(session('user_id'));
-
-            // Clear verification data from session
-            session()->forget(['verification_code', 'user_id']);
-
-            // Redirect to dashboard
-            return redirect()->intended('/dashboard');
-        }
-
-        // Invalid verification code
-        return back()->withErrors(['code' => 'Invalid verification code']);
     }
 
     public function AdminProfile()
