@@ -21,6 +21,18 @@ class DummyDataSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        // Disable FK constraints and clean up old seeded data
+        DB::statement('PRAGMA foreign_keys = OFF');
+        DB::table('reviews')->delete();
+        DB::table('reservations')->delete();
+        DB::table('borrows')->delete();
+        DB::table('books')->delete();
+        DB::table('categories')->delete();
+        DB::table('publishers')->delete();
+        DB::table('authors')->delete();
+        DB::table('users')->where('role', 'member')->delete();
+        DB::statement('PRAGMA foreign_keys = ON');
+
         $this->command->info('Seeding Users...');
         $users = [];
         for ($i = 0; $i < 100; $i++) {
@@ -52,7 +64,7 @@ class DummyDataSeeder extends Seeder
         $categories = [];
         for ($i = 0; $i < 100; $i++) {
             $categories[] = [
-                'name' => $faker->unique()->word . ' ' . $faker->word,
+                'name' => $faker->unique()->words(3, true),
                 'description' => $faker->sentence,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -80,6 +92,7 @@ class DummyDataSeeder extends Seeder
         
         $books = [];
         for ($i = 0; $i < 100; $i++) {
+            $qty = $faker->numberBetween(1, 20);
             $books[] = [
                 'title' => $faker->sentence(3),
                 'isbn' => $faker->isbn13,
@@ -87,10 +100,10 @@ class DummyDataSeeder extends Seeder
                 'category_id' => $faker->randomElement($categoryIds),
                 'publisher_id' => $faker->randomElement($publisherIds),
                 'publish_year' => $faker->year,
-                'quantity' => $faker->numberBetween(1, 20),
-                'available_quantity' => $faker->numberBetween(1, 20),
+                'quantity' => $qty,
                 'price' => $faker->randomFloat(2, 5, 100),
                 'description' => $faker->paragraph,
+                'status' => 1,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
