@@ -125,18 +125,18 @@
                                                 <td><span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3">{{ $book->category->name ?? '' }}</span></td>
                                                 <td><p class="text-sm text-muted">{{ $book->publisher->name ?? '' }}</p></td>
                                                 <td class="text-center">
-                                                    <div class="action d-flex justify-content-center gap-2">
-                                                        <a href="#" class="btn btn-sm btn-outline-primary rounded-circle" data-bs-toggle="modal"
+                                                    <div class="action d-flex justify-content-center gap-3">
+                                                        <a href="#" class="text-primary edit-btn" data-bs-toggle="modal"
                                                             data-bs-target="#editBookModal" data-id="{{ $book->book_id }}"
                                                             data-title="{{ $book->title }}" data-isbn="{{ $book->isbn }}"
                                                             data-author="{{ $book->author_id }}" data-category="{{ $book->category_id }}"
                                                             data-publisher="{{ $book->publisher_id }}" data-year="{{ $book->publish_year }}"
                                                             data-desc="{{ $book->description }}" data-price="{{ $book->price }}"
-                                                            data-quantity="{{ $book->quantity }}" data-image="{{ $book->image }}">
+                                                            data-quantity="{{ $book->quantity }}" data-image="{{ $book->image }}" style="font-size: 1.2rem;">
                                                             <i class="lni lni-pencil-alt"></i>
                                                         </a>
                                                         <a onclick="return confirm('Are you sure you want to delete this book?')"
-                                                            href="{{ route('book.delete', $book->book_id) }}" class="btn btn-sm btn-outline-danger rounded-circle">
+                                                            href="{{ route('book.delete', $book->book_id) }}" class="text-danger" style="font-size: 1.2rem;">
                                                             <i class="lni lni-trash-can"></i>
                                                         </a>
                                                     </div>
