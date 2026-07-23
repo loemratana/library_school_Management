@@ -23,58 +23,8 @@
 
       </li>
       <li class="nav-item nav-item-has-children">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2" aria-controls="ddmenu_2"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M11.8097 1.66667C11.8315 1.66667 11.8533 1.6671 11.875 1.66796V4.16667C11.875 5.43232 12.901 6.45834 14.1667 6.45834H16.6654C16.6663 6.48007 16.6667 6.50186 16.6667 6.5237V16.6667C16.6667 17.5872 15.9205 18.3333 15 18.3333H5.00001C4.07954 18.3333 3.33334 17.5872 3.33334 16.6667V3.33334C3.33334 2.41286 4.07954 1.66667 5.00001 1.66667H11.8097ZM6.66668 7.70834C6.3215 7.70834 6.04168 7.98816 6.04168 8.33334C6.04168 8.67851 6.3215 8.95834 6.66668 8.95834H10C10.3452 8.95834 10.625 8.67851 10.625 8.33334C10.625 7.98816 10.3452 7.70834 10 7.70834H6.66668ZM6.04168 11.6667C6.04168 12.0118 6.3215 12.2917 6.66668 12.2917H13.3333C13.6785 12.2917 13.9583 12.0118 13.9583 11.6667C13.9583 11.3215 13.6785 11.0417 13.3333 11.0417H6.66668C6.3215 11.0417 6.04168 11.3215 6.04168 11.6667ZM6.66668 14.375C6.3215 14.375 6.04168 14.6548 6.04168 15C6.04168 15.3452 6.3215 15.625 6.66668 15.625H13.3333C13.6785 15.625 13.9583 15.3452 13.9583 15C13.9583 14.6548 13.6785 14.375 13.3333 14.375H6.66668Z" />
-              <path
-                d="M13.125 2.29167L16.0417 5.20834H14.1667C13.5913 5.20834 13.125 4.74197 13.125 4.16667V2.29167Z" />
-            </svg>
-          </span>
-          <span class="text">Books Management</span>
-        </a>
-        <ul id="ddmenu_2" class="collapse dropdown-nav">
-          <li>
-            <a href="settings.html"> Settings </a>
-          </li>
-
-        </ul>
-      </li>
-      <li class="nav-item nav-item-has-children">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5" aria-controls="ddmenu_5"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4.16666 3.33335C4.16666 2.41288 4.91285 1.66669 5.83332 1.66669H14.1667C15.0872 1.66669 15.8333 2.41288 15.8333 3.33335V16.6667C15.8333 17.5872 15.0872 18.3334 14.1667 18.3334H5.83332C4.91285 18.3334 4.16666 17.5872 4.16666 16.6667V3.33335ZM6.04166 5.00002C6.04166 5.3452 6.32148 5.62502 6.66666 5.62502H13.3333C13.6785 5.62502 13.9583 5.3452 13.9583 5.00002C13.9583 4.65485 13.6785 4.37502 13.3333 4.37502H6.66666C6.32148 4.37502 6.04166 4.65485 6.04166 5.00002ZM6.66666 6.87502C6.32148 6.87502 6.04166 7.15485 6.04166 7.50002C6.04166 7.8452 6.32148 8.12502 6.66666 8.12502H13.3333C13.6785 8.12502 13.9583 7.8452 13.9583 7.50002C13.9583 7.15485 13.6785 6.87502 13.3333 6.87502H6.66666ZM6.04166 10C6.04166 10.3452 6.32148 10.625 6.66666 10.625H9.99999C10.3452 10.625 10.625 10.3452 10.625 10C10.625 9.65485 10.3452 9.37502 9.99999 9.37502H6.66666C6.32148 9.37502 6.04166 9.65485 6.04166 10ZM9.99999 16.6667C10.9205 16.6667 11.6667 15.9205 11.6667 15C11.6667 14.0795 10.9205 13.3334 9.99999 13.3334C9.07949 13.3334 8.33332 14.0795 8.33332 15C8.33332 15.9205 9.07949 16.6667 9.99999 16.6667Z" />
-            </svg>
-          </span>
-          <span class="text"> Books Category </span>
-        </a>
-        <ul id="ddmenu_5" class="collapse dropdown-nav">
-          <li>
-            <a href="{{ route('admin.category') }}"> Category </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('admin.publisher') }}">
-          <span class="icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M19 4H5C3.34315 4 2 5.34315 2 7V17C2 17.5523 2.44772 18 3 18C3.55228 18 4 17.5523 4 17V7C4 6.44772 4.44772 6 5 6H19C19.5523 6 20 5.55228 20 5C20 4.44772 19.5523 4 19 4Z" />
-              <path
-                d="M17 2H5C3.34315 2 2 3.34315 2 5V14C2 14.5523 2.44772 15 3 15C3.55228 15 4 14.5523 4 14V5C4 4.44772 4.44772 4 5 4H17C17.5523 4 18 3.55228 18 3C18 2.44772 17.5523 2 17 2Z" />
-              <path width="12" height="12" x="6" y="8" rx="2" fill="currentColor" opacity="0.5" />
-            </svg>
-          </span>
-          <span class="text">Publishers</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('admin.book') }}">
+        <a href="#0" class="{{ Route::is('admin.book') || Route::is('admin.category') || Route::is('admin.publisher') || Route::is('admin.author') ? '' : 'collapsed' }}" data-bs-toggle="collapse" data-bs-target="#ddmenu_catalog" aria-controls="ddmenu_catalog"
+          aria-expanded="{{ Route::is('admin.book') || Route::is('admin.category') || Route::is('admin.publisher') || Route::is('admin.author') ? 'true' : 'false' }}" aria-label="Toggle navigation">
           <span class="icon">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 2C3.34315 2 2 3.34315 2 5V17C2 17.5523 2.44772 18 3 18H5V2Z" />
@@ -82,22 +32,26 @@
               <path width="2" height="2" x="14" y="4" rx="1" fill="currentColor" opacity="0.5" />
             </svg>
           </span>
-          <span class="text">Books</span>
+          <span class="text">Catalog Management</span>
         </a>
+        <ul id="ddmenu_catalog" class="collapse dropdown-nav {{ Route::is('admin.book') || Route::is('admin.category') || Route::is('admin.publisher') || Route::is('admin.author') ? 'show' : '' }}">
+          <li>
+            <a href="{{ route('admin.book') }}" class="{{ Route::is('admin.book') ? 'active' : '' }}"> Books </a>
+          </li>
+          <li>
+            <a href="{{ route('admin.category') }}" class="{{ Route::is('admin.category') ? 'active' : '' }}"> Categories </a>
+          </li>
+          <li>
+            <a href="{{ route('admin.publisher') }}" class="{{ Route::is('admin.publisher') ? 'active' : '' }}"> Publishers </a>
+          </li>
+          <li>
+            <a href="{{ route('admin.author') }}" class="{{ Route::is('admin.author') ? 'active' : '' }}"> Authors </a>
+          </li>
+        </ul>
       </li>
+
       <li class="nav-item">
-        <a href="{{ route('admin.author') }}">
-          <span class="icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M3.33334 3.35442C3.33334 2.4223 4.07954 1.66666 5.00001 1.66666H15C15.9205 1.66666 16.6667 2.4223 16.6667 3.35442V16.8565C16.6667 17.5519 15.8827 17.9489 15.3333 17.5317L13.8333 16.3924C13.537 16.1673 13.1297 16.1673 12.8333 16.3924L10.5 18.1646C10.2037 18.3896 9.79634 18.3896 9.50001 18.1646L7.16668 16.3924C6.87038 16.1673 6.46298 16.1673 6.16668 16.3924L4.66668 17.5317C4.11731 17.9489 3.33334 17.5519 3.33334 16.8565V3.35442ZM4.79168 5.04218C4.79168 5.39173 5.0715 5.6751 5.41668 5.6751H10C10.3452 5.6751 10.625 5.39173 10.625 5.04218C10.625 4.69264 10.3452 4.40927 10 4.40927H5.41668C5.0715 4.40927 4.79168 4.69264 4.79168 5.04218ZM5.41668 7.7848C5.0715 7.7848 4.79168 8.06817 4.79168 8.41774C4.79168 8.76724 5.0715 9.05066 5.41668 9.05066H10C10.3452 9.05066 10.625 8.76724 10.625 8.41774C10.625 8.06817 10.3452 7.7848 10 7.7848H5.41668ZM4.79168 11.7932C4.79168 12.1428 5.0715 12.4262 5.41668 12.4262H10C10.3452 12.4262 10.625 12.1428 10.625 11.7932C10.625 11.4437 10.3452 11.1603 10 11.1603H5.41668C5.0715 11.1603 4.79168 11.4437 4.79168 11.7932ZM13.3333 4.40927C12.9882 4.40927 12.7083 4.69264 12.7083 5.04218C12.7083 5.39173 12.9882 5.6751 13.3333 5.6751H14.5833C14.9285 5.6751 15.2083 5.39173 15.2083 5.04218C15.2083 4.69264 14.9285 4.40927 14.5833 4.40927H13.3333ZM12.7083 8.41774C12.7083 8.76724 12.9882 9.05066 13.3333 9.05066H14.5833C14.9285 9.05066 15.2083 8.76724 15.2083 8.41774C15.2083 8.06817 14.9285 7.7848 14.5833 7.7848H13.3333C12.9882 7.7848 12.7083 8.06817 12.7083 8.41774ZM13.3333 11.1603C12.9882 11.1603 12.7083 11.4437 12.7083 11.7932C12.7083 12.1428 12.9882 12.4262 13.3333 12.4262H14.5833C14.9285 12.4262 15.2083 12.1428 15.2083 11.7932C15.2083 11.4437 14.9285 11.1603 14.5833 11.1603H13.3333Z" />
-            </svg>
-          </span>
-          <span class="text">Authors</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{ route('admin.user.management') }}">
+        <a href="{{ route('admin.user.management') }}" class="{{ Route::is('admin.user.management') ? 'active' : '' }}">
           <span class="icon">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -109,9 +63,9 @@
       </li>
 
       <li class="nav-item nav-item-has-children">
-        <a href="#0" class="{{ Route::is('admin.borrows*') ? '' : 'collapsed' }}" data-bs-toggle="collapse"
+        <a href="#0" class="{{ Route::is('admin.borrows*') || Route::is('admin.reservations') ? '' : 'collapsed' }}" data-bs-toggle="collapse"
           data-bs-target="#ddmenu_borrow" aria-controls="ddmenu_borrow"
-          aria-expanded="{{ Route::is('admin.borrows*') ? 'true' : 'false' }}" aria-label="Toggle navigation">
+          aria-expanded="{{ Route::is('admin.borrows*') || Route::is('admin.reservations') ? 'true' : 'false' }}" aria-label="Toggle navigation">
           <span class="icon">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -125,53 +79,19 @@
           </span>
           <span class="text">Borrow Management</span>
         </a>
-        <ul id="ddmenu_borrow" class="collapse dropdown-nav {{ Route::is('admin.borrows*') ? 'show' : '' }}">
+        <ul id="ddmenu_borrow" class="collapse dropdown-nav {{ Route::is('admin.borrows*') || Route::is('admin.reservations') ? 'show' : '' }}">
           <li>
-            <a href="{{ route('admin.borrows.books') }}" class="{{ Route::is('admin.borrows.books') ? 'active' : '' }}">
-              Issue Book (Cards) </a>
+            <a href="{{ route('admin.borrows.books') }}" class="{{ Route::is('admin.borrows.books') ? 'active' : '' }}"> Issue Book (Cards) </a>
           </li>
           <li>
-            <a href="{{ route('admin.borrows') }}" class="{{ Route::is('admin.borrows') ? 'active' : '' }}"> View
-              Borrows </a>
+            <a href="{{ route('admin.borrows') }}" class="{{ Route::is('admin.borrows') ? 'active' : '' }}"> View Borrows & Fines </a>
+          </li>
+          <li>
+            <a href="{{ route('admin.reservations') }}" class="{{ Route::is('admin.reservations') ? 'active' : '' }}"> Book Reservations </a>
           </li>
         </ul>
       </li>
 
-      <span class="divider">
-        <hr />
-      </span>
-      <li class="nav-item nav-item-has-children">
-        <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_4" aria-controls="ddmenu_4"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M1.66666 5.41669C1.66666 3.34562 3.34559 1.66669 5.41666 1.66669C7.48772 1.66669 9.16666 3.34562 9.16666 5.41669C9.16666 7.48775 7.48772 9.16669 5.41666 9.16669C3.34559 9.16669 1.66666 7.48775 1.66666 5.41669Z" />
-              <path
-                d="M1.66666 14.5834C1.66666 12.5123 3.34559 10.8334 5.41666 10.8334C7.48772 10.8334 9.16666 12.5123 9.16666 14.5834C9.16666 16.6545 7.48772 18.3334 5.41666 18.3334C3.34559 18.3334 1.66666 16.6545 1.66666 14.5834Z" />
-              <path
-                d="M10.8333 5.41669C10.8333 3.34562 12.5123 1.66669 14.5833 1.66669C16.6544 1.66669 18.3333 3.34562 18.3333 5.41669C18.3333 7.48775 16.6544 9.16669 14.5833 9.16669C12.5123 9.16669 10.8333 7.48775 10.8333 5.41669Z" />
-              <path
-                d="M10.8333 14.5834C10.8333 12.5123 12.5123 10.8334 14.5833 10.8334C16.6544 10.8334 18.3333 12.5123 18.3333 14.5834C18.3333 16.6545 16.6544 18.3334 14.5833 18.3334C12.5123 18.3334 10.8333 16.6545 10.8333 14.5834Z" />
-            </svg>
-          </span>
-          <span class="text">Fine and Fee </span>
-        </a>
-        <ul id="ddmenu_4" class="collapse dropdown-nav">
-          <li>
-            <a href="alerts.html"> Alerts </a>
-          </li>
-          <li>
-            <a href="buttons.html"> Buttons </a>
-          </li>
-          <li>
-            <a href="cards.html"> Cards </a>
-          </li>
-          <li>
-            <a href="typography.html"> Typography </a>
-          </li>
-        </ul>
-      </li>
       <li class="nav-item nav-item-has-children">
         <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_55" aria-controls="ddmenu_55"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -199,26 +119,19 @@
         </ul>
       </li>
 
-
-      <span class="divider">
-        <hr />
-      </span>
+      <span class="divider"><hr /></span>
 
       <li class="nav-item">
-        <a href="notification.html">
+        <a href="{{ route('home') }}" target="_blank">
           <span class="icon">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10.8333 2.50008C10.8333 2.03984 10.4602 1.66675 9.99999 1.66675C9.53975 1.66675 9.16666 2.03984 9.16666 2.50008C9.16666 2.96032 9.53975 3.33341 9.99999 3.33341C10.4602 3.33341 10.8333 2.96032 10.8333 2.50008Z" />
-              <path
-                d="M17.5 5.41673C17.5 7.02756 16.1942 8.33339 14.5833 8.33339C12.9725 8.33339 11.6667 7.02756 11.6667 5.41673C11.6667 3.80589 12.9725 2.50006 14.5833 2.50006C16.1942 2.50006 17.5 3.80589 17.5 5.41673Z" />
-              <path
-                d="M11.4272 2.69637C10.9734 2.56848 10.4947 2.50006 10 2.50006C7.10054 2.50006 4.75003 4.85057 4.75003 7.75006V9.20873C4.75003 9.72814 4.62082 10.2393 4.37404 10.6963L3.36705 12.5611C2.89938 13.4272 3.26806 14.5081 4.16749 14.9078C7.88074 16.5581 12.1193 16.5581 15.8326 14.9078C16.732 14.5081 17.1007 13.4272 16.633 12.5611L15.626 10.6963C15.43 10.3333 15.3081 9.93606 15.2663 9.52773C15.0441 9.56431 14.8159 9.58339 14.5833 9.58339C12.2822 9.58339 10.4167 7.71791 10.4167 5.41673C10.4167 4.37705 10.7975 3.42631 11.4272 2.69637Z" />
-              <path
-                d="M7.48901 17.1925C8.10004 17.8918 8.99841 18.3335 10 18.3335C11.0016 18.3335 11.9 17.8918 12.511 17.1925C10.8482 17.4634 9.15183 17.4634 7.48901 17.1925Z" />
+              <path d="M10.8333 2.50008C10.8333 2.03984 10.4602 1.66675 9.99999 1.66675C9.53975 1.66675 9.16666 2.03984 9.16666 2.50008C9.16666 2.96032 9.53975 3.33341 9.99999 3.33341C10.4602 3.33341 10.8333 2.96032 10.8333 2.50008Z" />
+              <path d="M17.5 5.41673C17.5 7.02756 16.1942 8.33339 14.5833 8.33339C12.9725 8.33339 11.6667 7.02756 11.6667 5.41673C11.6667 3.80589 12.9725 2.50006 14.5833 2.50006C16.1942 2.50006 17.5 3.80589 17.5 5.41673Z" />
+              <path d="M11.4272 2.69637C10.9734 2.56848 10.4947 2.50006 10 2.50006C7.10054 2.50006 4.75003 4.85057 4.75003 7.75006V9.20873C4.75003 9.72814 4.62082 10.2393 4.37404 10.6963L3.36705 12.5611C2.89938 13.4272 3.26806 14.5081 4.16749 14.9078C7.88074 16.5581 12.1193 16.5581 15.8326 14.9078C16.732 14.5081 17.1007 13.4272 16.633 12.5611L15.626 10.6963C15.43 10.3333 15.3081 9.93606 15.2663 9.52773C15.0441 9.56431 14.8159 9.58339 14.5833 9.58339C12.2822 9.58339 10.4167 7.71791 10.4167 5.41673C10.4167 4.37705 10.7975 3.42631 11.4272 2.69637Z" />
+              <path d="M7.48901 17.1925C8.10004 17.8918 8.99841 18.3335 10 18.3335C11.0016 18.3335 11.9 17.8918 12.511 17.1925C10.8482 17.4634 9.15183 17.4634 7.48901 17.1925Z" />
             </svg>
           </span>
-          <span class="text">Notifications</span>
+          <span class="text">Member Portal <i class="lni lni-arrow-right"></i></span>
         </a>
       </li>
     </ul>

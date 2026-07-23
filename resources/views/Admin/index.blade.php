@@ -165,45 +165,29 @@
       </div>
       <!-- End Row -->
       <div class="row">
+        <!-- Recent Borrowing Activity -->
         <div class="col-lg-7">
-          <div class="card-style mb-30 shadow-sm">
-            <div class="title d-flex flex-wrap align-items-center justify-content-between">
+          <div class="card-style mb-30 shadow-sm border-0 rounded-4">
+            <div class="title d-flex flex-wrap align-items-center justify-content-between mb-2">
               <div class="left">
-                <h6 class="text-medium mb-30 text-muted">Recent Borrowing Activity</h6>
+                <h6 class="text-medium mb-2 text-muted"><i class="lni lni-spinner-solid"></i> Recent Borrowing Activity</h6>
               </div>
             </div>
-            <!-- End Title -->
             <div class="table-responsive">
-              <table class="table top-selling-table">
+              <table class="table top-selling-table table-hover align-middle">
                 <thead>
                   <tr>
-                    <th>
-                      <h6 class="text-sm text-medium">Book</h6>
-                    </th>
-                    <th class="min-width">
-                      <h6 class="text-sm text-medium">
-                        Member <i class="lni lni-arrows-vertical"></i>
-                      </h6>
-                    </th>
-                    <th class="min-width">
-                      <h6 class="text-sm text-medium">
-                        Due Date <i class="lni lni-arrows-vertical"></i>
-                      </h6>
-                    </th>
-                    <th class="min-width">
-                      <h6 class="text-sm text-medium">
-                        Status <i class="lni lni-arrows-vertical"></i>
-                      </h6>
-                    </th>
+                    <th><h6 class="text-sm text-medium text-muted">Book</h6></th>
+                    <th><h6 class="text-sm text-medium text-muted">Member</h6></th>
+                    <th><h6 class="text-sm text-medium text-muted">Due Date</h6></th>
+                    <th><h6 class="text-sm text-medium text-muted">Status</h6></th>
                   </tr>
                 </thead>
                 <tbody>
                   @forelse($recentBorrows as $borrow)
                     <tr>
                       <td>
-                        <div class="product">
-                          <p class="text-sm font-weight-bold">{{ $borrow->book->title }}</p>
-                        </div>
+                        <p class="text-sm font-weight-bold text-dark">{{ Str::limit($borrow->book->title, 25) }}</p>
                       </td>
                       <td>
                         <p class="text-sm text-muted">{{ $borrow->user->name }}</p>
@@ -213,17 +197,61 @@
                       </td>
                       <td>
                         @if($borrow->status == 'borrowed')
-                          <span class="status-btn primary-btn py-1 px-3">Borrowed</span>
+                          <span class="badge bg-primary rounded-pill py-1 px-3">Borrowed</span>
                         @elseif($borrow->status == 'overdue')
-                          <span class="status-btn close-btn py-1 px-3">Overdue</span>
+                          <span class="badge bg-danger rounded-pill py-1 px-3">Overdue</span>
                         @elseif($borrow->status == 'returned')
-                          <span class="status-btn success-btn py-1 px-3">Returned</span>
+                          <span class="badge bg-success rounded-pill py-1 px-3">Returned</span>
                         @endif
                       </td>
                     </tr>
                   @empty
                     <tr>
-                      <td colspan="4" class="text-center py-4">No recent activity</td>
+                      <td colspan="4" class="text-center py-4 text-muted">No recent activity</td>
+                    </tr>
+                  @endforelse
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pending Reservations -->
+        <div class="col-lg-5">
+          <div class="card-style mb-30 shadow-sm border-0 rounded-4">
+            <div class="title d-flex flex-wrap align-items-center justify-content-between mb-2">
+              <div class="left">
+                <h6 class="text-medium mb-2 text-muted"><i class="lni lni-bookmark"></i> Pending Reservations</h6>
+              </div>
+              <div class="right">
+                <a href="{{ route('admin.reservations') }}" class="text-sm text-primary">View All</a>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table top-selling-table table-hover align-middle">
+                <thead>
+                  <tr>
+                    <th><h6 class="text-sm text-medium text-muted">Book</h6></th>
+                    <th><h6 class="text-sm text-medium text-muted">Member</h6></th>
+                    <th class="text-end"><h6 class="text-sm text-medium text-muted">Action</h6></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @forelse($pendingReservations as $res)
+                    <tr>
+                      <td>
+                        <p class="text-sm font-weight-bold text-dark">{{ Str::limit($res->book->title, 20) }}</p>
+                      </td>
+                      <td>
+                        <p class="text-sm text-muted">{{ $res->user->name }}</p>
+                      </td>
+                      <td class="text-end">
+                        <span class="badge bg-warning text-dark rounded-pill py-1 px-3">Pending</span>
+                      </td>
+                    </tr>
+                  @empty
+                    <tr>
+                      <td colspan="3" class="text-center py-4 text-muted">No pending reservations</td>
                     </tr>
                   @endforelse
                 </tbody>

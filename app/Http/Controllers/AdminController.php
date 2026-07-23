@@ -57,6 +57,13 @@ class AdminController extends Controller
         $categoryNames = $categoryStats->pluck('name');
         $categoryBookCounts = $categoryStats->pluck('books_count');
 
+        // Recent pending reservations
+        $pendingReservations = \App\Models\Reservation::with(['user', 'book'])
+                                ->where('status', 'pending')
+                                ->latest()
+                                ->take(5)
+                                ->get();
+
         return view('Admin.index', compact(
             'totalBooks',
             'totalMembers',
@@ -64,6 +71,7 @@ class AdminController extends Controller
             'overdueBooks',
             'availableBooks',
             'recentBorrows',
+            'pendingReservations',
             'months',
             'borrowsCount',
             'popularBookTitles',
