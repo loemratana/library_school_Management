@@ -8,9 +8,9 @@ use App\Http\Controllers\PublisherController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index'])->name('home');
+Route::get('/catalog', [\App\Http\Controllers\FrontendController::class, 'catalog'])->name('catalog');
+Route::get('/book/{id}', [\App\Http\Controllers\FrontendController::class, 'bookDetails'])->name('book.details');
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -64,6 +64,7 @@ Route::controller(App\Http\Controllers\BookController::class)->group(function ()
     Route::post('/admin/books/store', 'store')->name('book.store');
     Route::post('/admin/books/update', 'update')->name('book.update');
     Route::get('/admin/books/delete/{id}', 'destroy')->name('book.delete');
+    Route::get('/admin/books/qr/{id}', 'generateQr')->name('book.qr');
 });
 
 Route::controller(App\Http\Controllers\BorrowController::class)->group(function () {
@@ -72,4 +73,18 @@ Route::controller(App\Http\Controllers\BorrowController::class)->group(function 
     Route::post('/admin/borrows/store', 'store')->name('borrow.store');
     Route::post('/admin/borrows/return/{id}', 'returnBook')->name('borrow.return');
     Route::post('/admin/borrows/renew/{id}', 'renewBook')->name('borrow.renew');
+    Route::post('/admin/borrows/fine-paid/{id}', 'markFinePaid')->name('borrow.fine.paid');
+    Route::get('/admin/reservations', 'reservations')->name('admin.reservations');
+});
+
+// Member Routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/member/dashboard', [\App\Http\Controllers\MemberDashboardController::class, 'index'])->name('member.dashboard');
+    
+    // Reservations
+    Route::post('/reserve/{book_id}', [\App\Http\Controllers\ReservationController::class, 'store'])->name('reserve.store');
+    Route::post('/reserve/{id}/cancel', [\App\Http\Controllers\ReservationController::class, 'cancel'])->name('reserve.cancel');
+
+    // Reviews
+    Route::post('/review/{book_id}', [\App\Http\Controllers\ReviewController::class, 'store'])->name('review.store');
 });

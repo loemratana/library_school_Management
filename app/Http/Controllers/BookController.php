@@ -273,4 +273,10 @@ class BookController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function generateQr($id)
+    {
+        $book = Book::findOrFail($id);
+        return view('Admin.book_qr', compact('book'));
+    }
 }

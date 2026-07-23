@@ -45,4 +45,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getTotalOutstandingFinesAttribute()
+    {
+        return \App\Models\Borrow::where('user_id', $this->id)
+            ->where('fine_status', 'unpaid')
+            ->sum('fine_amount');
+    }
 }

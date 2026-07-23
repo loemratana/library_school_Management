@@ -164,11 +164,24 @@ class BorrowController extends Controller
 
         );
         return redirect()->back()->with([
-            'message' => 'Book renewed until' . $newDueDate->format('Y-m-d'),
+            'message' => 'Book renewed until ' . $newDueDate->format('Y-m-d'),
             'alert-type' => 'success'
         ]);
+    }
 
+    public function markFinePaid($id)
+    {
+        $borrow = Borrow::findOrFail($id);
+        $borrow->update(['fine_status' => 'paid']);
+        return redirect()->back()->with([
+            'message' => 'Fine marked as paid successfully.',
+            'alert-type' => 'success'
+        ]);
+    }
 
-
+    public function reservations()
+    {
+        $reservations = \App\Models\Reservation::with(['user', 'book'])->latest()->paginate(10);
+        return view('Admin.reservations', compact('reservations'));
     }
 }

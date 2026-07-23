@@ -40,4 +40,19 @@ class Book extends Model
     {
         return $this->hasMany(Borrow::class, 'book_id', 'book_id');
     }
+
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class, 'book_id', 'book_id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'book_id', 'book_id');
+    }
+
+    public function getAverageRatingAttribute()
+    {
+        return $this->reviews()->where('approved', true)->avg('rating') ?: 0;
+    }
 }
